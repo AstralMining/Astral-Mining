@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Astral_Mining" customModuleProvider="target">
             <connections>
+                <outlet property="nameField" destination="OZ0-Fj-9yP" id="yZ6-vU-jf8"/>
+                <outlet property="passwordField" destination="4Yg-e0-WKI" id="WiP-DV-pNd"/>
+                <outlet property="signUpButton" destination="bWh-lK-RDl" id="ZnC-UI-luV"/>
+                <outlet property="usernameField" destination="2zF-Aa-sHD" id="ARA-G0-MfV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,6 +27,9 @@
                     <color key="textColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="bY4-AB-vlj"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="line" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZ0-Fj-9yP">
                     <rect key="frame" x="175" y="130" width="250" height="35"/>
@@ -33,6 +40,9 @@
                     <color key="textColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="HZW-J8-G8m"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="line" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Yg-e0-WKI">
                     <rect key="frame" x="175" y="200" width="250" height="35"/>
@@ -42,7 +52,10 @@
                     </constraints>
                     <color key="textColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="6MU-ap-K6U"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWh-lK-RDl">
                     <rect key="frame" x="271" y="270" width="59" height="30"/>
