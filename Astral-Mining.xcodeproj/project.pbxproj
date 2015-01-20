@@ -14,6 +14,8 @@
 		5F3106761A6EEF260021CBE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F3106751A6EEF260021CBE9 /* Images.xcassets */; };
 		5F3106791A6EEF260021CBE9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3106771A6EEF260021CBE9 /* LaunchScreen.xib */; };
 		5F3106851A6EEF260021CBE9 /* Astral_MiningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3106841A6EEF260021CBE9 /* Astral_MiningTests.swift */; };
+		5F3106901A6EF0720021CBE9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */; };
+		5F3106911A6EF0720021CBE9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		5F31067E1A6EEF260021CBE9 /* Astral-MiningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Astral-MiningTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F3106831A6EEF260021CBE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F3106841A6EEF260021CBE9 /* Astral_MiningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astral_MiningTests.swift; sourceTree = "<group>"; };
+		5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
+		5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = ../SignUpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		5F3106691A6EEF260021CBE9 /* Astral-Mining */ = {
 			isa = PBXGroup;
 			children = (
+				5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */,
+				5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */,
 				5F31066C1A6EEF260021CBE9 /* AppDelegate.swift */,
 				5F31066E1A6EEF260021CBE9 /* FirstViewController.swift */,
 				5F3106701A6EEF260021CBE9 /* SecondViewController.swift */,
@@ -197,6 +203,7 @@
 			files = (
 				5F3106741A6EEF260021CBE9 /* Main.storyboard in Resources */,
 				5F3106791A6EEF260021CBE9 /* LaunchScreen.xib in Resources */,
+				5F3106911A6EF0720021CBE9 /* SignUpViewController.xib in Resources */,
 				5F3106761A6EEF260021CBE9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +224,7 @@
 			files = (
 				5F3106711A6EEF260021CBE9 /* SecondViewController.swift in Sources */,
 				5F31066D1A6EEF260021CBE9 /* AppDelegate.swift in Sources */,
+				5F3106901A6EF0720021CBE9 /* SignUpViewController.swift in Sources */,
 				5F31066F1A6EEF260021CBE9 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
