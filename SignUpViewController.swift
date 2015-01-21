@@ -47,12 +47,14 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        switch textField.tag {
+        
+        let tag = FieldTag(rawValue: textField.tag)!
+        switch tag {
             
-        case FieldTag.Username.rawValue, FieldTag.Name.rawValue:
+        case .Username, .Name:
             textField.clearsOnBeginEditing = false
-            
-        case FieldTag.Password.rawValue:
+         
+        case .Password:
             textField.clearsOnBeginEditing = false
             textField.secureTextEntry = true
             textField.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5)
@@ -63,23 +65,47 @@ extension SignUpViewController: UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let fieldValue = textField.text as NSString
-        let newFieldValue = fieldValue.stringByReplacingCharactersInRange(range, withString: string)
+        let fieldValue =
+            (textField.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        let tag = FieldTag(rawValue: textField.tag)!
         
-        switch textField.tag {
+        switch tag {
             
-        case FieldTag.Username.rawValue:
-            usernameString = newFieldValue
+        case .Username:
+            usernameString = fieldValue
             
-        case FieldTag.Name.rawValue:
-            nameString = newFieldValue
+        case .Name:
+            nameString = fieldValue
             
-        case FieldTag.Password.rawValue:
-            passwordString = newFieldValue
+        case .Password:
+            passwordString = fieldValue
+            textField.textColor = passwordColor(fieldValue)
             
         default:
             return true
         }
+        
+        signUpButton.enabled = usernameOk(usernameString) &&
+                               nameOk(nameString) &&
+                               passwordOk(passwordString)
+        
         return true
+    }
+    
+    func usernameOk(id: String) -> Bool {
+        return countElements(id) > 0
+    }
+    
+    func nameOk(id: String) -> Bool {
+        return countElements(id) > 0
+    }
+    
+    func passwordOk(id: String) -> Bool {
+        return countElements(id) > 4
+    }
+    
+    func passwordColor(id: String) -> UIColor {
+        return passwordOk(id) ? UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.5) :
+                                UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5)
     }
 }
