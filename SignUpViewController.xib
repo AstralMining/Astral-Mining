@@ -6,10 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Astral_Mining" customModuleProvider="target">
             <connections>
-                <outlet property="nameField" destination="OZ0-Fj-9yP" id="yZ6-vU-jf8"/>
+                <outlet property="displayNameField" destination="OZ0-Fj-9yP" id="r77-BP-Gs7"/>
+                <outlet property="loginNameField" destination="2zF-Aa-sHD" id="omM-R7-bDN"/>
                 <outlet property="passwordField" destination="4Yg-e0-WKI" id="WiP-DV-pNd"/>
                 <outlet property="signUpButton" destination="bWh-lK-RDl" id="ZnC-UI-luV"/>
-                <outlet property="usernameField" destination="2zF-Aa-sHD" id="ARA-G0-MfV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

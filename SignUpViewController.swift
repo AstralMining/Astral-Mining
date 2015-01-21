@@ -2,18 +2,18 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var loginNameField: UITextField!
+    @IBOutlet weak var displayNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
-    var usernameString = ""
-    var nameString = ""
-    var passwordString = ""
+    var loginName = ""
+    var displayName = ""
+    var password = ""
     
     enum FieldTag: Int {
-        case Username = 1000
-        case Name = 1001
+        case LoginName = 1000
+        case DisplayName = 1001
         case Password = 1002
     }
     
@@ -28,8 +28,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameField.tag = FieldTag.Username.rawValue
-        nameField.tag = FieldTag.Name.rawValue
+        loginNameField.tag = FieldTag.LoginName.rawValue
+        displayNameField.tag = FieldTag.DisplayName.rawValue
         passwordField.tag = FieldTag.Password.rawValue
         
         signUpButton.enabled = false
@@ -40,6 +40,8 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
+        println("User: \(loginName), name: \(displayName), password: \(password)")
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
@@ -51,13 +53,12 @@ extension SignUpViewController: UITextFieldDelegate {
         let tag = FieldTag(rawValue: textField.tag)!
         switch tag {
             
-        case .Username, .Name:
+        case .LoginName, .DisplayName:
             textField.clearsOnBeginEditing = false
          
         case .Password:
             textField.clearsOnBeginEditing = false
             textField.secureTextEntry = true
-            textField.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5)
             
         default:
             return
@@ -71,32 +72,32 @@ extension SignUpViewController: UITextFieldDelegate {
         
         switch tag {
             
-        case .Username:
-            usernameString = fieldValue
+        case .LoginName:
+            loginName = fieldValue
             
-        case .Name:
-            nameString = fieldValue
+        case .DisplayName:
+            displayName = fieldValue
             
         case .Password:
-            passwordString = fieldValue
+            password = fieldValue
             textField.textColor = passwordColor(fieldValue)
             
         default:
             return true
         }
         
-        signUpButton.enabled = usernameOk(usernameString) &&
-                               nameOk(nameString) &&
-                               passwordOk(passwordString)
+        signUpButton.enabled = loginNameOk(loginName) &&
+                               displayNameOk(displayName) &&
+                               passwordOk(password)
         
         return true
     }
     
-    func usernameOk(id: String) -> Bool {
+    func loginNameOk(id: String) -> Bool {
         return countElements(id) > 0
     }
     
-    func nameOk(id: String) -> Bool {
+    func displayNameOk(id: String) -> Bool {
         return countElements(id) > 0
     }
     
