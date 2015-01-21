@@ -16,6 +16,7 @@
 		5F3106851A6EEF260021CBE9 /* Astral_MiningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3106841A6EEF260021CBE9 /* Astral_MiningTests.swift */; };
 		5F3106901A6EF0720021CBE9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */; };
 		5F3106911A6EF0720021CBE9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */; };
+		5F6F650D1A7044F100978407 /* SignUpMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F650C1A7044F100978407 /* SignUpMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		5F3106841A6EEF260021CBE9 /* Astral_MiningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astral_MiningTests.swift; sourceTree = "<group>"; };
 		5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
 		5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = ../SignUpViewController.xib; sourceTree = "<group>"; };
+		5F6F650C1A7044F100978407 /* SignUpMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */,
+				5F6F650C1A7044F100978407 /* SignUpMaker.swift */,
 				5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */,
 				5F31066C1A6EEF260021CBE9 /* AppDelegate.swift */,
 				5F31066E1A6EEF260021CBE9 /* FirstViewController.swift */,
@@ -226,6 +229,7 @@
 				5F31066D1A6EEF260021CBE9 /* AppDelegate.swift in Sources */,
 				5F3106901A6EF0720021CBE9 /* SignUpViewController.swift in Sources */,
 				5F31066F1A6EEF260021CBE9 /* FirstViewController.swift in Sources */,
+				5F6F650D1A7044F100978407 /* SignUpMaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +421,7 @@
 				5F31068A1A6EEF260021CBE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F31068B1A6EEF260021CBE9 /* Build configuration list for PBXNativeTarget "Astral-MiningTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +430,7 @@
 				5F31068D1A6EEF260021CBE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

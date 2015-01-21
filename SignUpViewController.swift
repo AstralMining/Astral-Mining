@@ -40,7 +40,8 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
-        println("User: \(loginName), name: \(displayName), password: \(password)")
+        let signUpMaker = SignUpMaker(url: NSURL(string: "http://192.168.1.65:8888")!)
+        signUpMaker.signUp(loginName, displayName: displayName, password: password)
         
         dismissViewControllerAnimated(true, completion: nil)
     }
