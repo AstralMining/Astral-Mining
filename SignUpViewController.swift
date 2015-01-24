@@ -11,11 +11,15 @@ class SignUpViewController: UIViewController {
     var displayName = ""
     var password = ""
     
+    let baseUrl = NSURL(string: "http://192.168.1.65:8888")!
+    
     enum FieldTag: Int {
         case LoginName = 1000
         case DisplayName = 1001
         case Password = 1002
     }
+    
+    typealias JSONObject = [String:AnyObject]
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -40,10 +44,74 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
-        let signUpMaker = SignUpMaker(url: NSURL(string: "http://192.168.1.65:8888")!)
-        signUpMaker.signUp(loginName, displayName: displayName, password: password)
+        signUp(loginName, displayName: displayName, password: password)
+    }
+    
+    private func signUp(loginName: String, displayName: String, password: String) {
+        let jsonObject = mkSignUpRecord(loginName, displayName: displayName, password: password)
+        let request = mkPostRequest(jsonObject, url: "user")
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) {
+            data, response, error in
+            
+            let resp = response as NSHTTPURLResponse
+            println("Response code: \(resp.statusCode)")
+            
+            if error == nil {
+                
+                var decodeError = NSErrorPointer()
+                
+                let debugReply = NSString(data: data, encoding: NSUTF8StringEncoding)
+                if let url = self.getUrlStringFromJSON(data, error: decodeError) {
+                    println("GetUrlFromJSON: \(url)")
+                } else {
+                    println("JSON error: \(decodeError.debugDescription)")
+                }
+                
+                
+                
+                println("reply: \(debugReply)")
+            } else {
+                println("Error: \(error)")
+            }
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        task.resume()
+    }
+    
+    private func mkSignUpRecord(loginName: String, displayName: String, password: String) -> JSONObject {
+        var obj = Dictionary<String, String>()
         
-        dismissViewControllerAnimated(true, completion: nil)
+        obj["loginName"] = loginName
+        obj["displayName"] = displayName
+        obj["password"] = password
+        
+        return obj
+    }
+    
+    private func mkPostRequest(jsonObject: JSONObject, url: String) -> NSMutableURLRequest {
+        let request = NSMutableURLRequest(URL: NSURL(string: url, relativeToURL: baseUrl)!)
+        
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(
+            jsonObject, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
+        
+        return request
+    }
+    
+    private func getUrlStringFromJSON(data: NSData, error: NSErrorPointer) -> String? {
+        if let object: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: error) {
+            let jsonObject = object as [String: String]
+            if let url = jsonObject["url"] {
+                return url
+            } else {
+                return nil
+            }
+        }
+        return nil
     }
 }
 

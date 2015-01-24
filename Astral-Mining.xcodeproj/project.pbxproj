@@ -13,10 +13,11 @@
 		5F3106741A6EEF260021CBE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F3106721A6EEF260021CBE9 /* Main.storyboard */; };
 		5F3106761A6EEF260021CBE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F3106751A6EEF260021CBE9 /* Images.xcassets */; };
 		5F3106791A6EEF260021CBE9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3106771A6EEF260021CBE9 /* LaunchScreen.xib */; };
-		5F3106851A6EEF260021CBE9 /* Astral_MiningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3106841A6EEF260021CBE9 /* Astral_MiningTests.swift */; };
 		5F3106901A6EF0720021CBE9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */; };
 		5F3106911A6EF0720021CBE9 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */; };
-		5F6F650D1A7044F100978407 /* SignUpMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F650C1A7044F100978407 /* SignUpMaker.swift */; };
+		5F4C800E1A7443DE00E1232B /* HttpResponseExtractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C800D1A7443DE00E1232B /* HttpResponseExtractorTests.swift */; };
+		5F4C800F1A7447E400E1232B /* HttpResponseExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */; };
+		5F6F65111A73FC3B00978407 /* HttpResponseExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +41,10 @@
 		5F3106781A6EEF260021CBE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5F31067E1A6EEF260021CBE9 /* Astral-MiningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Astral-MiningTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F3106831A6EEF260021CBE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F3106841A6EEF260021CBE9 /* Astral_MiningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astral_MiningTests.swift; sourceTree = "<group>"; };
 		5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
 		5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = ../SignUpViewController.xib; sourceTree = "<group>"; };
-		5F6F650C1A7044F100978407 /* SignUpMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpMaker.swift; sourceTree = "<group>"; };
+		5F4C800D1A7443DE00E1232B /* HttpResponseExtractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponseExtractorTests.swift; sourceTree = "<group>"; };
+		5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponseExtractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +86,8 @@
 		5F3106691A6EEF260021CBE9 /* Astral-Mining */ = {
 			isa = PBXGroup;
 			children = (
+				5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */,
 				5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */,
-				5F6F650C1A7044F100978407 /* SignUpMaker.swift */,
 				5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */,
 				5F31066C1A6EEF260021CBE9 /* AppDelegate.swift */,
 				5F31066E1A6EEF260021CBE9 /* FirstViewController.swift */,
@@ -110,7 +111,7 @@
 		5F3106811A6EEF260021CBE9 /* Astral-MiningTests */ = {
 			isa = PBXGroup;
 			children = (
-				5F3106841A6EEF260021CBE9 /* Astral_MiningTests.swift */,
+				5F4C800D1A7443DE00E1232B /* HttpResponseExtractorTests.swift */,
 				5F3106821A6EEF260021CBE9 /* Supporting Files */,
 			);
 			path = "Astral-MiningTests";
@@ -229,7 +230,7 @@
 				5F31066D1A6EEF260021CBE9 /* AppDelegate.swift in Sources */,
 				5F3106901A6EF0720021CBE9 /* SignUpViewController.swift in Sources */,
 				5F31066F1A6EEF260021CBE9 /* FirstViewController.swift in Sources */,
-				5F6F650D1A7044F100978407 /* SignUpMaker.swift in Sources */,
+				5F6F65111A73FC3B00978407 /* HttpResponseExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +238,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F3106851A6EEF260021CBE9 /* Astral_MiningTests.swift in Sources */,
+				5F4C800E1A7443DE00E1232B /* HttpResponseExtractorTests.swift in Sources */,
+				5F4C800F1A7447E400E1232B /* HttpResponseExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -383,6 +386,7 @@
 				INFOPLIST_FILE = "Astral-MiningTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Astral-Mining.app/Astral-Mining";
 			};
 			name = Debug;
@@ -391,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
