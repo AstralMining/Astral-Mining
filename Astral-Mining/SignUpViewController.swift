@@ -2,7 +2,7 @@ import UIKit
 
 protocol SignUpViewDelegate {
     func signUpSucceeded(record: UserRecord)
-    func signUpFailedWithMessage(string: String)
+    func signUpFailedWithMessage(message: String)
 }
 
 class SignUpViewController: UIViewController {
@@ -11,6 +11,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var displayNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    var delegate: SignUpViewDelegate!
     
     var loginName = ""
     var displayName = ""
@@ -26,8 +28,9 @@ class SignUpViewController: UIViewController {
     
     typealias JSONObject = [String:AnyObject]
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, delegate: SignUpViewDelegate) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.delegate = delegate
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -55,29 +58,34 @@ class SignUpViewController: UIViewController {
     private func signUp(loginName: String, displayName: String, password: String) {
         let jsonObject = mkSignUpRecord(loginName, displayName: displayName, password: password)
         let request = mkPostRequest(jsonObject, url: "user")
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) {
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
-            let resp = response as NSHTTPURLResponse
-            println("Response code: \(resp.statusCode)")
-            
-            if error == nil {
-                
-                var decodeError = NSErrorPointer()
-                
-                let debugReply = NSString(data: data, encoding: NSUTF8StringEncoding)
-                if let url = self.getUrlStringFromJSON(data, error: decodeError) {
-                    println("GetUrlFromJSON: \(url)")
-                } else {
-                    println("JSON error: \(decodeError.debugDescription)")
+            if let error = error {
+                self.delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
+            } else if let response = response {
+                let extractor = HttpResponseExtractor(response: response as NSHTTPURLResponse)
+                switch extractor.statusCode() {
+                    
+                case 201:
+                    let decodeError = NSErrorPointer()
+                    if let resourceUrl = self.getUrlStringFromJSON(data, error: decodeError) {                        
+                        self.delegate.signUpSucceeded(
+                            UserRecord(loginName: loginName, displayName: displayName,
+                                       resourceUrl: resourceUrl, sessionCookie: extractor.sessionCookie()))
+                    } else {
+                        self.delegate.signUpFailedWithMessage(decodeError.debugDescription)
+                    }
+                    
+                case 409:
+                    self.delegate.signUpFailedWithMessage("User already exist.")
+                    
+                default:
+                    self.delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
                 }
                 
-                
-                
-                println("reply: \(debugReply)")
             } else {
-                println("Error: \(error)")
+                self.delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
             }
             
             self.dismissViewControllerAnimated(true, completion: nil)
