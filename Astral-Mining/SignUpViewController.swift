@@ -58,39 +58,39 @@ class SignUpViewController: UIViewController {
     private func signUp(loginName: String, displayName: String, password: String) {
         let jsonObject = mkSignUpRecord(loginName, displayName: displayName, password: password)
         let request = mkPostRequest(jsonObject, url: "user")
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if let error = error {
-                self.delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
-            } else if let response = response {
-                let extractor = HttpResponseExtractor(response: response as NSHTTPURLResponse)
-                switch extractor.statusCode() {
-                    
-                case 201:
-                    let decodeError = NSErrorPointer()
-                    if let resourceUrl = self.getUrlStringFromJSON(data, error: decodeError) {                        
-                        self.delegate.signUpSucceeded(
-                            UserRecord(loginName: loginName, displayName: displayName,
-                                       resourceUrl: resourceUrl, sessionCookie: extractor.sessionCookie()))
-                    } else {
-                        self.delegate.signUpFailedWithMessage(decodeError.debugDescription)
-                    }
-                    
-                case 409:
-                    self.delegate.signUpFailedWithMessage("User already exist.")
-                    
-                default:
-                    self.delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
-                }
-                
-            } else {
-                self.delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
-            }
-            
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: signUpCompletionHandler)
         task.resume()
+    }
+    
+    private func signUpCompletionHandler(data: NSData!, response: NSURLResponse!, error: NSError!) -> Void {
+        if let error = error {
+            delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
+        } else if let response = response {
+            let extractor = HttpResponseExtractor(response: response as NSHTTPURLResponse)
+            switch extractor.statusCode() {
+                    
+            case 201:
+                let decodeError = NSErrorPointer()
+                if let resourceUrl = self.getUrlStringFromJSON(data, error: decodeError) {
+                    delegate.signUpSucceeded(
+                        UserRecord(loginName: loginName, displayName: displayName,
+                                    resourceUrl: resourceUrl, sessionCookie: extractor.sessionCookie()))
+                } else {
+                    delegate.signUpFailedWithMessage(decodeError.debugDescription)
+                }
+                    
+            case 409:
+                delegate.signUpFailedWithMessage("User already exist.")
+                    
+            default:
+                delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
+            }
+                
+        } else {
+            delegate.signUpFailedWithMessage("Error in communication with astral-mining server.")
+        }
+            
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     private func mkSignUpRecord(loginName: String, displayName: String, password: String) -> JSONObject {
