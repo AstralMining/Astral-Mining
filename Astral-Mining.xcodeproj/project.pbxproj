@@ -18,6 +18,7 @@
 		5F4C800E1A7443DE00E1232B /* HttpResponseExtractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C800D1A7443DE00E1232B /* HttpResponseExtractorTests.swift */; };
 		5F4C800F1A7447E400E1232B /* HttpResponseExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */; };
 		5F6F65111A73FC3B00978407 /* HttpResponseExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */; };
+		5FB6BE631A75704200CF19E6 /* UserRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6BE621A75704200CF19E6 /* UserRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = ../SignUpViewController.xib; sourceTree = "<group>"; };
 		5F4C800D1A7443DE00E1232B /* HttpResponseExtractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponseExtractorTests.swift; sourceTree = "<group>"; };
 		5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponseExtractor.swift; sourceTree = "<group>"; };
+		5FB6BE621A75704200CF19E6 /* UserRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRecord.swift; path = ../UserRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +88,10 @@
 		5F3106691A6EEF260021CBE9 /* Astral-Mining */ = {
 			isa = PBXGroup;
 			children = (
-				5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */,
-				5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */,
 				5F31068F1A6EF0720021CBE9 /* SignUpViewController.xib */,
+				5F31068E1A6EF0720021CBE9 /* SignUpViewController.swift */,
+				5FB6BE621A75704200CF19E6 /* UserRecord.swift */,
+				5F6F65101A73FC3B00978407 /* HttpResponseExtractor.swift */,
 				5F31066C1A6EEF260021CBE9 /* AppDelegate.swift */,
 				5F31066E1A6EEF260021CBE9 /* FirstViewController.swift */,
 				5F3106701A6EEF260021CBE9 /* SecondViewController.swift */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F3106711A6EEF260021CBE9 /* SecondViewController.swift in Sources */,
+				5FB6BE631A75704200CF19E6 /* UserRecord.swift in Sources */,
 				5F31066D1A6EEF260021CBE9 /* AppDelegate.swift in Sources */,
 				5F3106901A6EF0720021CBE9 /* SignUpViewController.swift in Sources */,
 				5F31066F1A6EEF260021CBE9 /* FirstViewController.swift in Sources */,

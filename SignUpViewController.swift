@@ -1,5 +1,10 @@
 import UIKit
 
+protocol SignUpViewDelegate {
+    func signUpSucceeded(record: UserRecord)
+    func signUpFailedWithMessage(string: String)
+}
+
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var loginNameField: UITextField!
